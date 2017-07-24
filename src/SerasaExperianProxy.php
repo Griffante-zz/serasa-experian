@@ -28,8 +28,8 @@ final class SerasaExperianProxy {
                 'https://sitenethomologa.serasa.com.br/experian-data-licensing-ws/dataLicensingService?wsdl' :
                 'https://sitenethomologa.serasa.com.br/experian-data-licensing-ws/dataLicensingService?wsdl';
 
-        $username = '73916947';
-        $password = '40302010';
+        $username = '';
+        $password = '';
 
         $options = [];
         if (self::$homologacao) {
