@@ -6,6 +6,9 @@ use SerasaExperian\SerasaExperianFacade;
 use SerasaExperian\Parameters\ParametersInPF;
 use SerasaExperian\Parameters\RetornoPF;
 
+$username = '';
+$password = '';
+
 $parameters = new ParametersInPF;
 
 $retorno = new RetornoPF();
@@ -18,9 +21,11 @@ $retorno->dataNascimento = true;
 $parameters->cpf = '00090826892';
 $parameters->RetornoPF = $retorno;
 
-$facade = new SerasaExperianFacade();
+$facade = new SerasaExperianFacade($username, $password, true);
 
-$result = $facade->consultarPessoaFisica($parameters);
+$response = $facade->consultarPessoaFisica($parameters);
+
+$result = $response->getResult();
 
 echo "<strong>CPF: </strong>" . $result->cpf . "<br>";
 echo "<strong>Nome: </strong>" . $result->nome . "<br>";

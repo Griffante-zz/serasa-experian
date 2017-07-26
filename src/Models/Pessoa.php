@@ -2,7 +2,7 @@
 
 namespace SerasaExperian\Models;
 
-abstract class Pessoa {
+abstract class Pessoa extends Model {
     
     /**
      *

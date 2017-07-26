@@ -4,6 +4,11 @@ namespace SerasaExperian;
 
 final class SerasaExperianProxy {
     
+    use Credentials;
+    
+    const WSDL = 'https://sitenet.serasa.com.br:443/experian-data-licensing-ws/dataLicensingService?wsdl';
+    const WSDL_HOMOLOG = 'https://sitenethomologa.serasa.com.br/experian-data-licensing-ws/dataLicensingService?wsdl';
+    
     /**
      *
      * @var SerasaExperianProxy
@@ -24,20 +29,10 @@ final class SerasaExperianProxy {
 
 
     private function __construct() {
-        $wsdl = self::$homologacao ?
-                'https://sitenethomologa.serasa.com.br/experian-data-licensing-ws/dataLicensingService?wsdl' :
-                'https://sitenethomologa.serasa.com.br/experian-data-licensing-ws/dataLicensingService?wsdl';
-
-        $username = '';
-        $password = '';
-
-        $options = [];
-        if (self::$homologacao) {
-            $options['trace'] = 1;
-        }
+        $wsdl = $this->getWsdl();
+        $options = $this->getOptions();
         
         $this->client = new \SoapClient($wsdl, $options);
-        $this->client->__setSoapHeaders([new WsseAuthHeader($username, $password)]);
     }
     
     /**
@@ -61,6 +56,23 @@ final class SerasaExperianProxy {
      */
     public function getClient() {
         return $this->client;
+    }
+    
+    protected function setHeader() {
+        $this->client->__setSoapHeaders(Array(new WsseAuthHeader($this->username, $this->password)));
+    }
+    
+    private function getWsdl() {
+        return self::$homologacao ? self::WSDL_HOMOLOG : self::WSDL;
+    }
+    
+    private function getOptions() {
+        $options = [];
+        if (self::$homologacao) {
+            $options['trace'] = 1;
+        }
+        
+        return $options;
     }
     
 }
