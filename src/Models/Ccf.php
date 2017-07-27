@@ -2,12 +2,17 @@
 
 namespace SerasaExperian\Models;
 
-final class Ccf {
+final class Ccf extends Model {
     
     /**
      *
      * @var CcfOcorrencia
      */
     public $ocorrencia;
+    
+    protected function fillArray(array $data) {
+        $this->ocorrencia = new CcfOcorrencia();
+        $this->ocorrencia->fillArray($data);
+    }
     
 }

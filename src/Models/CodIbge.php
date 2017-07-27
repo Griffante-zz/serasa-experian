@@ -2,7 +2,7 @@
 
 namespace SerasaExperian\Models;
 
-final class CodIbge {
+final class CodIbge extends Model {
     
     /**
      *

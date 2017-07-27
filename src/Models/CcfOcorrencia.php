@@ -2,7 +2,7 @@
 
 namespace SerasaExperian\Models;
 
-final class CcfOcorrencia {
+final class CcfOcorrencia extends Model {
     
     /**
      *

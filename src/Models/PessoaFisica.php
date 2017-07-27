@@ -262,4 +262,74 @@ final class PessoaFisica extends Pessoa {
      */
     public $mensagem;
     
+    protected function fillArray(array $data) {
+        parent::fillArray($data);
+        
+        $this->fillSituacaoCadastral($data);
+        $this->fillAtividadeConsumo($data);
+        $this->fillSocioEmpresa($data);
+        $this->fillCcf($data);
+        $this->fillCodIbge($data);
+        $this->fillRepresentanteLegal($data);
+    }
+    
+    private function fillSituacaoCadastral($data) {
+        $this->situacaoCadastral = new SituacaoCadastralPessoaFisica();
+        
+        if (empty($data['situacaoCadastral'])) {
+            return;
+        }
+        
+        $this->situacaoCadastral->fill($data['situacaoCadastral']);
+    }
+    
+    private function fillAtividadeConsumo($data) {
+        $this->atividadeConsumo = new AtividadeConsumo();
+        
+        if (empty($data['atividadeConsumo'])) {
+            return;
+        }
+        
+        $this->atividadeConsumo->fill($data['atividadeConsumo']);
+    }
+    
+    private function fillSocioEmpresa($data) {
+        $this->sociosEmpresa = [];
+        
+        foreach ($data['sociosEmpresa'] as $socio) {
+            $sociosEmpresa = new SocioEmpresa();
+            $sociosEmpresa->fill($socio);
+            $this->sociosEmpresa[] = $sociosEmpresa;
+        }
+    }
+    
+    private function fillCcf() {
+        $this->ccf = new Ccf();
+        
+        if (empty($data['ccf'])) {
+            return;
+        }
+        
+        $this->ccf->fill($data['ccf']);
+    }
+    
+    private function fillCodIbge() {
+        $this->codIbge = new CodIbge;
+        
+        if (empty($data['codIbge'])) {
+            return;
+        }
+        
+        $this->codIbge->fill($data['codIbge']);
+    }
+    
+    private function fillRepresentanteLegal($data) {
+        $this->representanteLegal = [];
+        
+        foreach ($data['representanteLegal'] as $representante) {
+            $representanteLegal = new RepresentanteLegal();
+            $representanteLegal->fill($representante);
+            $this->representanteLegal[] = $representanteLegal;
+        }
+    }
 }
