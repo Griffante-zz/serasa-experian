@@ -1,5 +1,7 @@
 <?php
 
+namespace SerasaExperian\Tests;
+
 use PHPUnit\Framework\TestCase;
 use SerasaExperian\WsseAuthHeader;
 

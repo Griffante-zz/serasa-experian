@@ -1,5 +1,7 @@
 <?php
 
+namespace SerasaExperian\Tests\Models;
+
 use PHPUnit\Framework\TestCase;
 use SerasaExperian\Models\PessoaFisica;
 use SerasaExperian\Models\SituacaoCadastralPessoaFisica;

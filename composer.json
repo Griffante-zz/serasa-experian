@@ -13,11 +13,11 @@
         "phpunit/phpunit": "6.2.3"
     },
     "autoload": {
-        "autoload": {
-            "psr-0": { "": "./" }
-        },
-        "psr-4": {
-            "SerasaExperian\\": "src/"
+        "psr-4": { 
+            "SerasaExperian\\": "src/" 
         }
+    },
+    "autoload-dev": {
+        "psr-4": { "SerasaExperian\\Tests\\": "tests/" }
     }
 }
