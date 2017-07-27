@@ -1,5 +1,5 @@
 {
-    "name": "pravaler/serasaexperian",
+    "name": "griffante/serasa-experian",
     "description": "Módulo de integração Serasa Experian via SOAP",
     "keywords": ["integracao", "serasa", "soap", "web service"],
     "license": "MIT",

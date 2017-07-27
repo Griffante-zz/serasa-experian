@@ -2,7 +2,7 @@
 
 namespace SerasaExperian\Models;
 
-final class AtividadeConsumo {
+final class AtividadeConsumo extends Model {
     
     /**
      *

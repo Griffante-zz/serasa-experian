@@ -3,7 +3,7 @@
 namespace SerasaExperian\Models;
 
 
-final class SituacaoCadastralPessoaFisica {
+final class SituacaoCadastralPessoaFisica extends Model {
    
     /**
      *
@@ -31,7 +31,7 @@ final class SituacaoCadastralPessoaFisica {
     
     /**
      *
-     * @var FontePesquisada 
+     * @var FontePesquisadaEnum 
      */
     public $fontePesquisada;
 

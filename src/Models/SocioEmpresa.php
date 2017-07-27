@@ -2,7 +2,7 @@
 
 namespace SerasaExperian\Models;
 
-final class SocioEmpresa {
+final class SocioEmpresa extends Model {
     
     /**
      *

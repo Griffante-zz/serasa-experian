@@ -2,7 +2,7 @@
 
 namespace SerasaExperian\Models;
 
-final class RepresentanteLegal {
+final class RepresentanteLegal extends Model {
     
     /**
      *

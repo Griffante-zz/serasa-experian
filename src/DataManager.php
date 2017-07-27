@@ -14,10 +14,15 @@ abstract class DataManager implements IData {
         foreach ($properties as $property) {
             if($this->{$property->name} !== null) {
                 if (is_object($this->{$property->name})) {
-                    if (!($this->{$property->name} instanceof IData)) {
-                        throw new InvalidTypeException("Objeto não implementa a interface SerasaExperian\\IData");
+                    if ($this->{$property->name} instanceof \DateTime) {
+                        $parameters[$property->name] = $this->{$property->name};
                     }
-                    $parameters[$property->name] = $this->{$property->name}->toArray();
+                    else if (!($this->{$property->name} instanceof IData)) {
+                        throw new InvalidTypeException("Objeto {$property->name} não implementa a interface SerasaExperian\\IData");
+                    }
+                    else {
+                        $parameters[$property->name] = $this->{$property->name}->toArray();
+                    }
                 }
                 else {
                     $parameters[$property->name] = $this->{$property->name};
@@ -66,7 +71,7 @@ abstract class DataManager implements IData {
         }
     }
     
-    protected function fillObject(\stdClass $data) {
+    protected function fillObject($data) {
         foreach ($data as $property => $value) {
             $this->{$property} = $value;
         }
