@@ -31,10 +31,10 @@ final class SerasaExperianFacade {
             $data = $proxy->getClient()->ConsultarPF($arguments);
         } 
         catch (\SoapFault $ex) {
-            return new DataLicensingFault($ex->getMessage(), $ex->getCode(), $ex->getPrevious());
+            throw new DataLicensingFault($ex->getMessage(), $ex->getCode(), $ex->getPrevious());
         }
         catch (\Exception $ex) {
-            return new DataLicensingFault($ex->getMessage(), $ex->getCode(), $ex->getPrevious());
+            throw new DataLicensingFault($ex->getMessage(), $ex->getCode(), $ex->getPrevious());
         }
 
         $result = new PessoaFisica;

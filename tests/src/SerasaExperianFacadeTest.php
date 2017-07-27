@@ -50,16 +50,14 @@ class SerasaExperianFacadeTest extends TestCase {
         $parameters->cpf = '00090826892';
         $parameters->RetornoPF = $retorno;
         
-//        $response = $this->object->consultarPessoaFisica($parameters);
-//        
-//        $this->assertInstanceOf('SerasaExperian\Responses\ConsultarPFResponse', $response);
+        try {
+            $response = $this->object->consultarPessoaFisica($parameters);
+            $this->assertInstanceOf('SerasaExperian\Responses\ConsultarPFResponse', $response);
+        } 
+        catch (\Exception $ex) {
+            $this->assertInstanceOf('SerasaExperian\Exceptions\DataLicensingFault', $ex);
+        }
         
-        SerasaExperianProxy::getInstance()
-                ->setCredentials('', '');
-        
-        $response = $this->object->consultarPessoaFisica($parameters);
-        
-        $this->assertInstanceOf('SerasaExperian\Exceptions\DataLicensingFault', $response);
     }
 
 }
