@@ -1,5 +1,7 @@
 <?php
 
+namespace SerasaExperian\Tests;
+
 use PHPUnit\Framework\TestCase;
 use SerasaExperian\SerasaExperianFacade;
 use SerasaExperian\SerasaExperianProxy;
@@ -48,9 +50,9 @@ class SerasaExperianFacadeTest extends TestCase {
         $parameters->cpf = '00090826892';
         $parameters->RetornoPF = $retorno;
         
-        $response = $this->object->consultarPessoaFisica($parameters);
-        
-        $this->assertInstanceOf('SerasaExperian\Responses\ConsultarPFResponse', $response);
+//        $response = $this->object->consultarPessoaFisica($parameters);
+//        
+//        $this->assertInstanceOf('SerasaExperian\Responses\ConsultarPFResponse', $response);
         
         SerasaExperianProxy::getInstance()
                 ->setCredentials('', '');
