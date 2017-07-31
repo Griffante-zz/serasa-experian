@@ -31,7 +31,7 @@ final class ParametersInPF extends Parameter {
     public function toArray() {
         $parameters = parent::toArray();
         
-        return ['parameters' => $parameters];
+        return array('parameters' => $parameters);
     }
     
 }
