@@ -294,7 +294,7 @@ final class PessoaFisica extends Pessoa {
     }
     
     private function fillSocioEmpresa($data) {
-        $this->sociosEmpresa = [];
+        $this->sociosEmpresa = array();
         
         foreach ($data['sociosEmpresa'] as $socio) {
             $sociosEmpresa = new SocioEmpresa();
@@ -324,7 +324,7 @@ final class PessoaFisica extends Pessoa {
     }
     
     private function fillRepresentanteLegal($data) {
-        $this->representanteLegal = [];
+        $this->representanteLegal = array();
         
         foreach ($data['representanteLegal'] as $representante) {
             $representanteLegal = new RepresentanteLegal();

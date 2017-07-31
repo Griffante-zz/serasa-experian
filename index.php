@@ -28,7 +28,7 @@ $object->situacaoCadastral->dataConsulta = new DateTime;
 $object->renda = '';
 $object->triagemRisco = '';
 $object->atividadeConsumo = new AtividadeConsumo;
-$object->sociosEmpresa = [new SocioEmpresa];
+$object->sociosEmpresa = array(new SocioEmpresa);
 $object->profissao = '';
 $object->estadoCivil = '';
 $object->escolaridade = '';
@@ -57,7 +57,7 @@ $object->servidorPublicoFederal = false;
 $object->houseHoldID = '';
 $object->houseHoldRenda = '';
 $object->houseHoldQtdPessoa = '';
-$object->representanteLegal = [new RepresentanteLegal];
+$object->representanteLegal = array(new RepresentanteLegal);
 $object->inibir = 1;
 $object->mensagem = '';
 

@@ -10,7 +10,7 @@ abstract class DataManager implements IData {
         $reflect = new \ReflectionClass($this);
         
         $properties = $reflect->getProperties(\ReflectionProperty::IS_PUBLIC);
-        $parameters = [];
+        $parameters = array();
         foreach ($properties as $property) {
             if($this->{$property->name} !== null) {
                 if (is_object($this->{$property->name})) {
