@@ -262,7 +262,7 @@ final class PessoaFisica extends Pessoa {
      */
     public $mensagem;
     
-    protected function fillArray(array $data) {
+    protected function fillArray($data) {
         parent::fillArray($data);
         
         $this->fillSituacaoCadastral($data);
@@ -296,6 +296,10 @@ final class PessoaFisica extends Pessoa {
     private function fillSocioEmpresa($data) {
         $this->sociosEmpresa = array();
         
+        if (empty($data['sociosEmpresa'])) {
+            return;
+        }
+        
         foreach ($data['sociosEmpresa'] as $socio) {
             $sociosEmpresa = new SocioEmpresa();
             $sociosEmpresa->fill($socio);
@@ -325,6 +329,10 @@ final class PessoaFisica extends Pessoa {
     
     private function fillRepresentanteLegal($data) {
         $this->representanteLegal = array();
+        
+        if (empty($data['representanteLegal'])) {
+            return;
+        }
         
         foreach ($data['representanteLegal'] as $representante) {
             $representanteLegal = new RepresentanteLegal();
