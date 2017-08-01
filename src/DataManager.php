@@ -65,7 +65,7 @@ abstract class DataManager implements IData {
         return $model;
     }
 
-    protected function fillArray(array $data) {
+    protected function fillArray($data) {
         foreach ($data as $property => $value) {
             $this->{$property} = $value;
         }

@@ -22,8 +22,8 @@ abstract class Pessoa extends Model {
      */
     public $telefones;
     
-    protected function fillArray(array $data) {
-        $this->id = $data['id'];
+    protected function fillArray($data) {
+        parent::fillArray($data);
         
         $this->fillEnderecos($data);
         $this->fillTelefones($data);
@@ -31,6 +31,10 @@ abstract class Pessoa extends Model {
     
     private function fillEnderecos($data) {
         $this->enderecos = array();
+        
+        if (empty($data['enderecos'])) {
+            return;
+        }
         
         foreach ($data['enderecos'] as $endereco) {
             $end = new Endereco();
@@ -41,6 +45,10 @@ abstract class Pessoa extends Model {
     
     private function fillTelefones($data) {
         $this->telefones = array();
+        
+        if (empty($data['telefones'])) {
+            return;
+        }
         
         foreach ($data['telefones'] as $telefone) {
             $tel = new Telefone();

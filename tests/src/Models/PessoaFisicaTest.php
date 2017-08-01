@@ -36,7 +36,7 @@ class PessoaFisicaTest extends TestCase {
         $this->object->renda = '';
         $this->object->triagemRisco = '';
         $this->object->atividadeConsumo = new AtividadeConsumo;
-        $this->object->sociosEmpresa = [new SocioEmpresa];
+        $this->object->sociosEmpresa = array(new SocioEmpresa);
         $this->object->profissao = '';
         $this->object->estadoCivil = '';
         $this->object->escolaridade = '';
@@ -65,7 +65,7 @@ class PessoaFisicaTest extends TestCase {
         $this->object->houseHoldID = '';
         $this->object->houseHoldRenda = '';
         $this->object->houseHoldQtdPessoa = '';
-        $this->object->representanteLegal = [new RepresentanteLegal];
+        $this->object->representanteLegal = array(new RepresentanteLegal);
         $this->object->inibir = 1;
         $this->object->mensagem = '';
         

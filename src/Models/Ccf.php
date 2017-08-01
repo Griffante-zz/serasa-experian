@@ -10,7 +10,7 @@ final class Ccf extends Model {
      */
     public $ocorrencia;
     
-    protected function fillArray(array $data) {
+    protected function fillArray($data) {
         $this->ocorrencia = new CcfOcorrencia();
         $this->ocorrencia->fillArray($data);
     }
