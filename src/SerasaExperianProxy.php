@@ -83,7 +83,10 @@ final class SerasaExperianProxy {
     }
     
     private function getOptions() {
-        $options = array();
+        $options = [
+            'cache_wsdl' => WSDL_CACHE_NONE
+        ];
+        
         if (self::$homologacao) {
             $options['trace'] = 1;
         }
